@@ -6,7 +6,6 @@ import com.example.demo.entity.SystemUser;
 import com.example.demo.repository.ContractorAssignmentRepository;
 import com.example.demo.repository.ProjectInquiryRepository;
 import com.example.demo.repository.SystemUserRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,13 +15,16 @@ import java.util.List;
 public class InquiryServiceImpl implements InquiryService {
 
     private final ProjectInquiryRepository inquiryRepository;
+    private final ProjectInquiryRepository projectSiteRepository;
     private final SystemUserRepository userRepository;
     private final ContractorAssignmentRepository assignmentRepository;
 
     public InquiryServiceImpl(ProjectInquiryRepository inquiryRepository,
+                               ProjectInquiryRepository projectSiteRepository,
                                SystemUserRepository userRepository,
                                ContractorAssignmentRepository assignmentRepository) {
         this.inquiryRepository = inquiryRepository;
+        this.projectSiteRepository = projectSiteRepository;
         this.userRepository = userRepository;
         this.assignmentRepository = assignmentRepository;
     }
@@ -49,8 +51,8 @@ public class InquiryServiceImpl implements InquiryService {
     }
 
     @Override
-    public ResponseEntity<List<ProjectInquiry>> getAllInquiries() {
-        return ResponseEntity.ok(inquiryRepository.findAll());
+    public List<ProjectInquiry> getAllInquiries() {
+        return inquiryRepository.findAll();
     }
 
     @Override

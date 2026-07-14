@@ -37,7 +37,7 @@ public class InquiryController {
     @GetMapping("/all")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERVISOR', 'ROLE_CONTRACTOR')")
     public ResponseEntity<List<ProjectInquiry>> getAllInquiries() {
-        return inquiryService.getAllInquiries();
+        return ResponseEntity.ok(inquiryService.getAllInquiries());
     }
 
     @PostMapping("/{id}/assign")
