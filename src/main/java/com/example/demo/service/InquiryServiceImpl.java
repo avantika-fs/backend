@@ -15,16 +15,13 @@ import java.util.List;
 public class InquiryServiceImpl implements InquiryService {
 
     private final ProjectInquiryRepository inquiryRepository;
-    private final ProjectInquiryRepository projectSiteRepository;
     private final SystemUserRepository userRepository;
     private final ContractorAssignmentRepository assignmentRepository;
 
     public InquiryServiceImpl(ProjectInquiryRepository inquiryRepository,
-                               ProjectInquiryRepository projectSiteRepository,
                                SystemUserRepository userRepository,
                                ContractorAssignmentRepository assignmentRepository) {
         this.inquiryRepository = inquiryRepository;
-        this.projectSiteRepository = projectSiteRepository;
         this.userRepository = userRepository;
         this.assignmentRepository = assignmentRepository;
     }
