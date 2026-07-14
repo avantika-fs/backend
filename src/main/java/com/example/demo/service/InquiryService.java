@@ -72,6 +72,9 @@ public class InquiryService {
         }
         SystemUser contractor = userRepository.findById(contractorId)
                 .orElseThrow(() -> new RuntimeException("Contractor not found"));
+        if (!assignmentRepository.findByContractorId(contractorId).isEmpty()) {
+            // contractor has existing assignments, proceed with assignment
+        }
         inquiry.setStatus(ProjectInquiry.InquiryStatus.PLANNING);
         inquiry.setContractor(contractor);
         return inquiryRepository.save(inquiry);

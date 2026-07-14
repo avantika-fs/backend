@@ -14,6 +14,17 @@
 	<name>BuildBridge</name>
 	<description>Construction Project Management System</description>
 	<properties>
+
+
+
+
+
+
+
+
+
+
+	
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>

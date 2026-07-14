@@ -52,7 +52,7 @@ class BuildBridgeApplicationTests {
         ReflectionTestUtils.setField(jwtService, "expiration", 3600000L);
         authenticationManager = mock(AuthenticationManager.class);
         authService = new AuthService(userRepository, passwordEncoder, jwtService, authenticationManager);
-        inquiryService = new InquiryService(inquiryRepository, inquiryRepository, userRepository,
+        inquiryService = new InquiryService(inquiryRepository, userRepository,
                 mock(ContractorAssignmentRepository.class));
     }
 
